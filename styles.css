@@ -1,12 +1,28 @@
 #car {
-	color: blue;
+	width: 40px;
+	height: 40px;
+	background: blue;
+	position: absolute;
+	top: 10px;
 }
 #copcar {
-	color: black;
+	background: black;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 60px;
 }
 #motorcycle {
-	color: orange;
+	background: orange;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 110px;
 }
 #tank {
-	color: gray;
+	background: gray;
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 160px;
 }

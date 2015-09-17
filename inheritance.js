@@ -1,48 +1,55 @@
 //alert ("this works!");
-
 function inherit(proto) {
   function F() {}
   F.prototype = proto
   return new F
 }
-//vehicle
-function vehicle(name){
-	this.name = name;
-}
+	//vehicle constructor
+	function Vehicle(){
+		this.name = name;
+	}
 
-//vehicle methods
-vehicle.prototype = {
-	function (move) {
-	},
-	damage: true,
-	totaled: false
-}
+	//vehicle methods 'prototype of class'
+	Vehicle.prototype.move = function() { 
+	}
+	Vehicle.prototype.damage = function () {
+	}
+	Vehicle.prototype.totaled = function() {
+	}
+	Vehicle.prototype.damageTolerance = function() {
+	}
 
-//car
-function vehicle(car){
-	this.car = car;
-}
+	//car constructor
+	function Car() {
+		//code block
+	}
+	Car.prototype = inherit(Vehicle.prototype);
+	Car.prototype.damageTolerance = 2;
+	var car = new Car();
+	car.move();
+	
+	//copcar
+	function Copcar() {
+		//code block
+	}
+	
+	Copcar.prototype = inherit(Vehicle.prototype);
+	Copcar.prototype.damageTolerance = 3;
+	var copcar = new Copcar;
+	copcar.move();
 
-//inherit
-car.prototype = inherit(vehicle.prototype);
+	//tank
+	function Tank() {
+	}
+	Tank.prototype = inherit(Vehicle.prototype);
+	Tank.prototype.damageTolerance = 10;
+	var tank = new Tank;
+	tank.move();
 
-//car methods
-
-
-//usage
-var car = new car('bluecar');
-
-function vehicle(copcar){
-	this.copcar = copcar;
-}
-copcar.prototype = inherit(vehicle.prototype);
-
-function vehicle(tank){
-	this.tank = tank;
-}
-tank.prototype = inherit(vehicle.prototype);
-
-function vehicle(motorcycle){
-	this.motorcycle	= motorcycle;
-}
-motorcycle.prototype = inherit(vehicle.prototype);
+	//motorcycle
+	function Motorcycle() { 
+	}
+	Motorcycle.prototype = inherit(Vehicle.prototype);
+	Motorcycle.prototype.damageTolerance = 1;
+	var motorcycle = new Motorcycle();
+	motorcycle.move();
