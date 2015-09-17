@@ -1,4 +1,6 @@
 //alert ("this works!");
+$(document).ready(function(){
+	
 function inherit(proto) {
   function F() {}
   F.prototype = proto
@@ -10,7 +12,9 @@ function inherit(proto) {
 	}
 
 	//vehicle methods 'prototype of class'
-	Vehicle.prototype.move = function() { 
+	Vehicle.prototype.move = function() {
+		$("#car").animate       
+    });
 	}
 	Vehicle.prototype.damage = function () {
 	}
@@ -53,3 +57,5 @@ function inherit(proto) {
 	Motorcycle.prototype.damageTolerance = 1;
 	var motorcycle = new Motorcycle();
 	motorcycle.move();
+	
+	});
