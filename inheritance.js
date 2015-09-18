@@ -18,6 +18,22 @@ $('#btnAddCopCar').click(function() {
   	v.move();
   	vid++;
 });
+
+$('#btnAddMotorcycle').click(function() {
+	var div = $('<div class="Motorcycle"></div>').attr('id', 'v'+ vid);
+  	$(document.body).append(div);
+  	var c = new Car('#v'+vid);
+   	c.move();
+    vid++;
+});
+
+$('#btnAddTank').click(function() {
+	var div = $('<div class="Tank"></div>').attr('id', 'v'+ vid);
+  	$(document.body).append(div);
+  	var c = new Car('#v'+vid);
+   	c.move();
+    vid++;
+});
 	
 function inherit(proto) {
 	function F() {}
@@ -32,8 +48,8 @@ function inherit(proto) {
 
 	//vehicle methods 'prototype of class'
 	Vehicle.prototype.move = function() {
-$("#car").animate       
-    });
+	//$("#Car").animate       
+    //});
 	}
 	Vehicle.prototype.damage = function () {
 	}

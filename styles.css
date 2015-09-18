@@ -1,18 +1,18 @@
-#vehicle {
+.Vehicle {
 	width: 40px;
 	height: 40px;
 	background: blue;
 	position: absolute;
 }
 
-#car {
+.Car {
 	width: 40px;
 	height: 40px;
 	background: blue;
 	position: absolute;
 }
 
-#copcar {
+.CopCar {
 	background: black;
 	width: 40px;
 	height: 40px;
@@ -20,7 +20,7 @@
 	top: 60px;
 }
 
-#motorcycle {
+.Motorcycle {
 	background: orange;
 	width: 20px;
 	height: 20px;
@@ -28,7 +28,7 @@
 	top: 110px;
 }
 
-#tank {
+.Tank {
 	background: gray;
 	width: 70px;
 	height: 70px;
