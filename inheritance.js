@@ -55,7 +55,15 @@ $('#btnAddTank').click(function() {
            { 	duration: this.speed,
 		   		queue: false,
            		complete: this.moveLeft.bind(this)}
-       );
+       );	function randomSpawnPoint(){
+		   var x = Math.floor((Math.random() * width) +1);
+		   var y = Math.floor((Math.random() * height) +1);
+		   $("#v" + vid).css({
+			   "left":x + "px",
+			   "top":y + "px",
+		   })
+	   }
+	   randomSpawnPoint();
    };
    Vehicle.prototype.moveLeft = function() {
        console.log(this.divid);
@@ -64,7 +72,15 @@ $('#btnAddTank').click(function() {
            { 	duration: this.speed,
 		   		queue: false,
            		complete: this.moveRight.bind(this)}
-       );
+       );	function randomSpawnPoint(){
+		   var x = Math.floor((Math.random() * width) +1);
+		   var y = Math.floor((Math.random() * height) +1);
+		   $("#v" + vid).css({
+			   "left":x + "px",
+			   "top":y + "px",
+		   })
+	   }
+	   randomSpawnPoint();  
    }
    Vehicle.prototype.moveDown = function() {
        console.log(this.divid);
@@ -73,7 +89,15 @@ $('#btnAddTank').click(function() {
            {	duration: this.speed,
 		   		queue: false, 
            		complete: this.moveUp.bind(this)}
-       );
+       );	function randomSpawnPoint(){
+		   var x = Math.floor((Math.random() * width) +1);
+		   var y = Math.floor((Math.random() * height) +1);
+		   $("#v" + vid).css({
+			   "left":x + "px",
+			   "top":y + "px",
+		   })
+	   }
+	   randomSpawnPoint(); 
    }
    Vehicle.prototype.moveUp = function() {
        console.log(this.divid);
@@ -83,7 +107,15 @@ $('#btnAddTank').click(function() {
                queue: false, 
                complete: this.moveDown.bind(this)
            }
-       );
+       );	function randomSpawnPoint(){
+		   var x = Math.floor((Math.random() * width) +1);
+		   var y = Math.floor((Math.random() * height) +1);
+		   $("#v" + vid).css({
+			   "left":x + "px",
+			   "top":y + "px",
+		   })
+	   }
+	   randomSpawnPoint(); 
    }
    
    Vehicle.prototype.move = function (direction) {
@@ -134,7 +166,6 @@ $('#btnAddTank').click(function() {
 		this.tolerance = 10;
 		this.speed = 1000;
 		this.divid = vid;
-		
 	}
 	Motorcycle.prototype = Vehicle.prototype;
 
