@@ -37,8 +37,8 @@ $('#btnAddTank').click(function() {
 	
 	function inherit(proto) {
 		function F() {}
-			F.prototype = proto
-		return new F
+			F.prototype = proto;
+		return new F;
 	}
 	
 	//vehicle constructor
@@ -52,24 +52,27 @@ $('#btnAddTank').click(function() {
 	Vehicle.prototype.moveRight = function() {
        $(this.divid).animate({
            left: width}, 
-           { duration: this.speed, queue: false,
-           complete: this.moveLeft.bind(this)}
+           { 	duration: this.speed,
+		   		queue: false,
+           		complete: this.moveLeft.bind(this)}
        );
    };
    Vehicle.prototype.moveLeft = function() {
        console.log(this.divid);
        $(this.divid).animate({
            left: 0}, 
-           { duration: this.speed, queue: false,
-           complete: this.moveRight.bind(this)}
+           { 	duration: this.speed,
+		   		queue: false,
+           		complete: this.moveRight.bind(this)}
        );
    }
    Vehicle.prototype.moveDown = function() {
-       //console.log(this.divid);
+       console.log(this.divid);
        $(this.divid).animate({
            top: height}, 
-           { duration: this.speed, queue: false, 
-           complete: this.moveUp.bind(this)}
+           {	duration: this.speed,
+		   		queue: false, 
+           		complete: this.moveUp.bind(this)}
        );
    }
    Vehicle.prototype.moveUp = function() {
@@ -82,6 +85,7 @@ $('#btnAddTank').click(function() {
            }
        );
    }
+   
    Vehicle.prototype.move = function (direction) {
        this.moveRight();
        this.moveDown();
@@ -130,9 +134,7 @@ $('#btnAddTank').click(function() {
 		this.tolerance = 10;
 		this.speed = 1000;
 		this.divid = vid;
-		this.move = function() {
-		this.moveRight();
-		}
+		
 	}
 	Motorcycle.prototype = Vehicle.prototype;
 
