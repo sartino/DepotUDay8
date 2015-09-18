@@ -17,12 +17,13 @@ $(document).ready(function() {
     var v = new CopCar('#v' + vid);
     v.move();
     vid++;
-	setInterval(function(){blink()}, 1000);
-		function blink() {
-			$(".CopCar").fadeTo(100, 0.1).fadeTo(200, 1.0);
-		}
-	
-	
+    setInterval(function() {
+      blink();
+    }, 1000);
+
+    function blink() {
+      $(".CopCar").fadeTo(100, 0.1).fadeTo(200, 1.0);
+    }
   });
 
   $('#btnAddMotorcycle').click(function() {
@@ -111,7 +112,7 @@ $(document).ready(function() {
         "left": x + "px",
         "top": y + "px",
       });
-	  
+
     }
     randomSpawnPoint();
   };
