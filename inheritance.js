@@ -1,10 +1,11 @@
 $(document).ready(function() {
-   var width = $(document).width();
-   var height = $(document).height();
-   var vid = 0;
+  	var width = $(document).width();
+  	var height = $(document).height();
+   	var vid = 0;
    
 $('#btnAddCar').click(function() {
-	var div = $('<div class="Car"></div>').attr('id', 'v'+ vid);
+//	var div = '<div class="Car" id="v' + vid.toString() + '"></div>';
+ 	var div = $('<div class="Car"></div>').attr('id', 'v'+ vid);
   	$(document.body).append(div);
   	var c = new Car('#v'+vid);
    	c.move();
@@ -35,51 +36,94 @@ $('#btnAddTank').click(function() {
     vid++;
 });
 	
-function inherit(proto) {
-	function F() {}
-	F.prototype = proto
-	return new F
+	function inherit(proto) {
+		function F() {}
+			F.prototype = proto
+		return new F
 	}
 	
 	//vehicle constructor
-	function Vehicle(){
-		this.name = name;
+	function Vehicle(divid){
+		//this.name = name;
+		this.tolerance = 1;
+		this.divid = '#' + divid;
+		this.speed = 500;		
 	}
-
+	
 	//vehicle methods 'prototype of class'
-	Vehicle.prototype.move = function() {
-	//$("#Car").animate       
-    //});
-	}
-	Vehicle.prototype.damage = function () {
-	}
-	Vehicle.prototype.totaled = function() {
-	}
-	Vehicle.prototype.damageTolerance = function() {
-	}
+	Vehicle.prototype.moveRight = function() {
+       $(this.divid).animate({
+           left: width}, 
+           { duration: this.speed, queue: false,
+           complete: this.moveLeft.bind(this)}
+       );
+   };
+   Vehicle.prototype.moveLeft = function() {
+       console.log(this.divid);
+       $(this.divid).animate({
+           left: 0}, 
+           { duration: this.speed, queue: false,
+           complete: this.moveRight.bind(this)}
+       );
+   }
+   Vehicle.prototype.moveDown = function() {
+       //console.log(this.divid);
+       $(this.divid).animate({
+           top: height}, 
+           { duration: this.speed, queue: false, 
+           complete: this.moveUp.bind(this)}
+       );
+   }
+   Vehicle.prototype.moveUp = function() {
+       console.log(this.divid);
+       $(this.divid).animate({
+           top: 0}, { 
+               duration: this.speed, 
+               queue: false, 
+               complete: this.moveDown.bind(this)
+           }
+       );
+   }
+   Vehicle.prototype.move = function (direction) {
+       this.moveRight();
+       this.moveDown();
+   }
+       
+   Vehicle.prototype.remove = function () {
+   }
 
 	//car constructor
-	function Car() {
-		//code block
+	function Car(vid) {
+		this.tolerance = 2;
+		this.speed = 1000;
+		this.divid = vid;
+		this.move = function() {
+			this.moveRight();
+		}
 	}
-	Car.prototype = inherit(Vehicle.prototype);
-	Car.prototype.damageTolerance = 2;
-	var car = new Car();
-	car.move();
+	Car.prototype = Vehicle.prototype;
+	//var car = new Car();
+	//car.moveRight();
 	
-	//copcar
-	function Copcar() {
-		//code block
+	//copcar constructor
+	function CopCar(vid) {
+		this.tolerance = 2;
+		this.speed = 1000;
+		this.divid = vid;
+		this.move = function() {
+			this.moveDown();
+		}
 	}
 	
-	Copcar.prototype = inherit(Vehicle.prototype);
-	Copcar.prototype.damageTolerance = 3;
-	var copcar = new Copcar;
-	copcar.move();
+	CopCar.prototype = Vehicle.prototype;
+	
+	//var copcar = new Copcar;
+	//copcar.move();
 
 	//tank
 	function Tank() {
 	}
+	
 	Tank.prototype = inherit(Vehicle.prototype);
 	Tank.prototype.damageTolerance = 10;
 	var tank = new Tank;
@@ -88,6 +132,7 @@ function inherit(proto) {
 	//motorcycle
 	function Motorcycle() { 
 	}
+	
 	Motorcycle.prototype = inherit(Vehicle.prototype);
 	Motorcycle.prototype.damageTolerance = 1;
 	var motorcycle = new Motorcycle();
