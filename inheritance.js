@@ -4,7 +4,6 @@ $(document).ready(function() {
    	var vid = 0;
    
 $('#btnAddCar').click(function() {
-//	var div = '<div class="Car" id="v' + vid.toString() + '"></div>';
  	var div = $('<div class="Car"></div>').attr('id', 'v'+ vid);
   	$(document.body).append(div);
   	var c = new Car('#v'+vid);
@@ -23,16 +22,16 @@ $('#btnAddCopCar').click(function() {
 $('#btnAddMotorcycle').click(function() {
 	var div = $('<div class="Motorcycle"></div>').attr('id', 'v'+ vid);
   	$(document.body).append(div);
-  	var c = new Car('#v'+vid);
-   	c.move();
+  	var m = new Motorcycle('#v'+vid);
+   	m.move();
     vid++;
 });
 
 $('#btnAddTank').click(function() {
 	var div = $('<div class="Tank"></div>').attr('id', 'v'+ vid);
   	$(document.body).append(div);
-  	var c = new Car('#v'+vid);
-   	c.move();
+  	var t = new Tank('#v'+vid);
+   	t.move();
     vid++;
 });
 	
@@ -44,7 +43,6 @@ $('#btnAddTank').click(function() {
 	
 	//vehicle constructor
 	function Vehicle(divid){
-		//this.name = name;
 		this.tolerance = 1;
 		this.divid = '#' + divid;
 		this.speed = 500;		
@@ -95,10 +93,10 @@ $('#btnAddTank').click(function() {
 	//car constructor
 	function Car(vid) {
 		this.tolerance = 2;
-		this.speed = 1000;
+		this.speed = 2000;
 		this.divid = vid;
 		this.move = function() {
-			this.moveRight();
+		this.moveRight();
 		}
 	}
 	Car.prototype = Vehicle.prototype;
@@ -107,35 +105,35 @@ $('#btnAddTank').click(function() {
 	
 	//copcar constructor
 	function CopCar(vid) {
-		this.tolerance = 2;
+		this.tolerance = 3;
+		this.speed = 2000;
+		this.divid = vid;
+		this.move = function() {
+		this.moveDown();
+		}
+	}
+	CopCar.prototype = Vehicle.prototype;
+	
+	//tank
+	function Tank(vid) {
+		this.tolerance = 10;
+		this.speed = 4000;
+		this.divid = vid;
+		this.move = function() {
+		this.moveRight();
+		}
+	}
+	Tank.prototype = Vehicle.prototype;
+
+	//motorcycle
+	function Motorcycle(vid) { 
+		this.tolerance = 10;
 		this.speed = 1000;
 		this.divid = vid;
 		this.move = function() {
-			this.moveDown();
+		this.moveRight();
 		}
 	}
-	
-	CopCar.prototype = Vehicle.prototype;
-	
-	//var copcar = new Copcar;
-	//copcar.move();
+	Motorcycle.prototype = Vehicle.prototype;
 
-	//tank
-	function Tank() {
-	}
-	
-	Tank.prototype = inherit(Vehicle.prototype);
-	Tank.prototype.damageTolerance = 10;
-	var tank = new Tank;
-	tank.move();
-
-	//motorcycle
-	function Motorcycle() { 
-	}
-	
-	Motorcycle.prototype = inherit(Vehicle.prototype);
-	Motorcycle.prototype.damageTolerance = 1;
-	var motorcycle = new Motorcycle();
-	motorcycle.move();
-	
-	});
+});
