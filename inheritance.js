@@ -1,11 +1,30 @@
-//alert ("this works!");
-$(document).ready(function(){
+$(document).ready(function() {
+   var width = $(document).width();
+   var height = $(document).height();
+   var vid = 0;
+   
+$('#btnAddCar').click(function() {
+	var div = $('<div class="Car"></div>').attr('id', 'v'+ vid);
+  	$(document.body).append(div);
+  	var c = new Car('#v'+vid);
+   	c.move();
+    vid++;
+});
+
+$('#btnAddCopCar').click(function() {
+ 	var div = $('<div class="CopCar"></div>').attr('id', 'v'+ vid);
+  	$(document.body).append(div);
+  	var v = new CopCar('#v'+vid);
+  	v.move();
+  	vid++;
+});
 	
 function inherit(proto) {
-  function F() {}
-  F.prototype = proto
-  return new F
-}
+	function F() {}
+	F.prototype = proto
+	return new F
+	}
+	
 	//vehicle constructor
 	function Vehicle(){
 		this.name = name;
@@ -13,7 +32,7 @@ function inherit(proto) {
 
 	//vehicle methods 'prototype of class'
 	Vehicle.prototype.move = function() {
-		$("#car").animate       
+$("#car").animate       
     });
 	}
 	Vehicle.prototype.damage = function () {
