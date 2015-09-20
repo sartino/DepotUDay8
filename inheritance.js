@@ -41,7 +41,7 @@ $(document).ready(function() {
     t.move();
     vid++;
   });
-
+  //inherit master function
   function inherit(proto) {
     function F() {}
     F.prototype = proto;
@@ -112,7 +112,6 @@ $(document).ready(function() {
         "left": x + "px",
         "top": y + "px",
       });
-
     }
     randomSpawnPoint();
   };
@@ -147,7 +146,7 @@ $(document).ready(function() {
   //car constructor
   function Car(vid) {
     this.tolerance = 2;
-    this.speed = 2000;
+    this.speed = 3000;
     this.divid = vid;
     this.move = function() {
       this.moveRight();
@@ -158,7 +157,7 @@ $(document).ready(function() {
   //copcar constructor
   function CopCar(vid) {
     this.tolerance = 3;
-    this.speed = 2000;
+    this.speed = 2500;
     this.divid = vid;
     this.move = function() {
       this.moveDown();
@@ -166,7 +165,7 @@ $(document).ready(function() {
   }
   CopCar.prototype = Vehicle.prototype;
 
-  //tank
+  //tank constructor
   function Tank(vid) {
     this.tolerance = 10;
     this.speed = 6000;
@@ -177,10 +176,10 @@ $(document).ready(function() {
   }
   Tank.prototype = Vehicle.prototype;
 
-  //motorcycle
+  //motorcycle constructor
   function Motorcycle(vid) {
     this.tolerance = 10;
-    this.speed = 1000;
+    this.speed = 2000;
     this.divid = vid;
   }
   Motorcycle.prototype = Vehicle.prototype;
