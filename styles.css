@@ -4,8 +4,15 @@
 	background: blue;
 	position: absolute;
 }
-
+/*
+div.Car:before {
+	content:url(https://didipopmoms.files.wordpress.com/2011/12/yellowcar1.jpg?w=320&h=170);
+	position: absolute;
+	width: 20px;
+	height: auto;
+}*/
 .Car {
+	
 	width: 40px;
 	height: 40px;
 	background: blue;

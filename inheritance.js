@@ -84,17 +84,8 @@ $(document).ready(function() {
       queue: false,
       complete: this.moveRight.bind(this)
     });
-
-    function randomSpawnPoint() {
-      var x = Math.floor((Math.random() * width) + 1);
-      var y = Math.floor((Math.random() * height) + 1);
-      $("#v" + vid).css({
-        "left": x + "px",
-        "top": y + "px",
-      });
-    }
-    randomSpawnPoint();
   };
+  
   Vehicle.prototype.moveDown = function() {
     console.log(this.divid);
     $(this.divid).animate({
@@ -124,16 +115,6 @@ $(document).ready(function() {
       queue: false,
       complete: this.moveDown.bind(this)
     });
-
-    function randomSpawnPoint() {
-      var x = Math.floor((Math.random() * width) + 1);
-      var y = Math.floor((Math.random() * height) + 1);
-      $("#v" + vid).css({
-        "left": x + "px",
-        "top": y + "px",
-      });
-    }
-    randomSpawnPoint();
   };
 
   Vehicle.prototype.move = function(direction) {
